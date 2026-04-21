@@ -1,0 +1,23 @@
+name: "Deploy New Polarith PRO Template"
+description: "Submit a new website project to be rendered on the portfolio grid."
+title: "[Project Title]"
+labels: ["portfolio-update"]
+body:
+  - type: input
+    id: link
+    attributes:
+      label: "Website Link"
+      description: "Paste the live, deployed URL of the website."
+      placeholder: "https://example.com/..."
+    validations:
+      required: true
+      
+  - type: textarea
+    id: description
+    attributes:
+      label: "Description"
+      description: "Enter a professional, hyper-optimized description for the UI card."
+      placeholder: "This is a high-performance, heavily SEO-optimised web solution..."
+    validations:
+      required: true
+      
