@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Polarith PRO | Premium Web Solutions</title>
+    
+    <meta name="description" content="Polarith PRO presents an exclusive repository of next-generation, ultra-fast, and heavily SEO-optimized web templates. Elevate your digital presence with Awwwards-level interface design and flawless execution.">
+    <meta name="keywords" content="Polarith Web, Polarith PRO, premium web templates, glassmorphism UI, high-performance websites, SEO-optimized web design, frontend architecture">
+    <meta name="author" content="Polarith Web Services">
+    <meta property="og:title" content="Polarith PRO | Premium Web Solutions">
+    <meta property="og:description" content="Select a highly-optimized, next-generation web experience from the Polarith repository.">
+    <meta property="og:type" content="website">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --accent: #00f0ff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        body {
+            background-color: #050505;
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Dynamic Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -2;
+            background: radial-gradient(circle at 15% 50%, rgba(20, 0, 80, 0.4), transparent 50%),
+                        radial-gradient(circle at 85% 30%, rgba(0, 100, 150, 0.3), transparent 50%);
+            animation: bgShift 20s ease-in-out infinite alternate;
+            will-change: transform;
+        }
+
+        @keyframes bgShift {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        /* Cursor Glow Tracking */
+        .cursor-glow {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            transform: translate(-50%, -50%);
+            transition: opacity 0.3s ease;
+            will-change: left, top;
+        }
+
+        /* Layout & Header */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 5rem;
+            animation: fadeInDown 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+        }
+
+        .logo {
+            max-width: 180px;
+            height: auto;
+            margin-bottom: 2rem;
+            filter: drop-shadow(0 0 20px rgba(255,255,255,0.1));
+        }
+
+        h1 {
+            font-size: clamp(3rem, 5vw, 5rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            background: linear-gradient(135deg, #fff 0%, #a0a0a0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        p.subtitle {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Grid & Glass Cards */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+            position: relative;
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2.5rem;
+            text-decoration: none;
+            color: var(--text-main);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 300px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(0, 240, 255, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 240, 255, 0.1);
+        }
+
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+
+        .card-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .card-content p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 2rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+        }
+
+        .card-footer svg {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            transition: transform 0.3s ease;
+        }
+
+        .glass-card:hover .card-footer svg {
+            transform: translateX(5px);
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-in {
+            animation: cardEnter 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes cardEnter {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .loader {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            padding: 4rem 0;
+            letter-spacing: 2px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-animation"></div>
+    <div class="cursor-glow" id="cursor-glow"></div>
+
+    <div class="container">
+        <header>
+            <img src="logo.png" alt="Polarith PRO Logo" class="logo" onerror="this.style.display='none'">
+            <h1>Digital Excellence.</h1>
+            <p class="subtitle">Select a highly-optimized, next-generation web experience from the Polarith PRO repository.</p>
+        </header>
+
+        <main class="grid" id="projects-grid">
+            <div class="loader">Initializing Secure Database...</div>
+        </main>
+    </div>
+
+    <script>
+        // Ambient Cursor Glow Tracking
+        const cursorGlow = document.getElementById('cursor-glow');
+        document.addEventListener('mousemove', (e) => {
+            requestAnimationFrame(() => {
+                cursorGlow.style.left = e.clientX + 'px';
+                cursorGlow.style.top = e.clientY + 'px';
+            });
+        });
+
+        // Advanced GitHub API Integration for YAML Issue Parsing
+        async function fetchPolarithProjects() {
+            const username = 'polarithprojects';
+            const repo = 'polarithprojects.github.io';
+            const grid = document.getElementById('projects-grid');
+            
+            // Security constraint: Only fetch open issues created by the owner
+            const apiUrl = `https://api.github.com/repos/${username}/${repo}/issues?state=open&creator=${username}`;
+
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) throw new Error('API Rate Limit or Network Error');
+                const issues = await response.json();
+
+                grid.innerHTML = ''; // Clear loader
+
+                if (issues.length === 0) {
+                    grid.innerHTML = '<div class="loader" style="animation:none;">No templates initialized yet.</div>';
+                    return;
+                }
+
+                issues.forEach((issue, index) => {
+                    const bodyText = issue.body || '';
+                    
+                    // 1. Precise URL Extraction
+                    const urlRegex = /(https?:\/\/[^\s]+)/;
+                    const urlMatch = bodyText.match(urlRegex);
+                    const siteUrl = urlMatch ? urlMatch[0] : '#';
+                    
+                    // 2. Precise Description Extraction (Targeting YAML Markdown Heading)
+                    let description = "Premium highly-optimized template. Click to experience.";
+                    const descRegex = /### Description\s+([\s\S]+)/;
+                    const descMatch = bodyText.match(descRegex);
+                    
+                    if (descMatch && descMatch[1]) {
+                        description = descMatch[1].trim();
+                        // Cleanly truncate if length exceeds bounds
+                        if (description.length > 120) {
+                            description = description.substring(0, 120) + '...';
+                        }
+                    }
+
+                    // 3. DOM Node Construction
+                    const card = document.createElement('a');
+                    card.href = siteUrl;
+                    card.target = '_blank';
+                    card.className = 'glass-card animate-in';
+                    card.style.animationDelay = `${index * 0.15}s`;
+
+                    card.innerHTML = `
+                        <div class="card-content">
+                            <h3>${issue.title}</h3>
+                            <p>${description}</p>
+                        </div>
+                        <div class="card-footer">
+                            <span>Launch Experience</span>
+                            <svg viewBox="0 0 24 24">
+                                <path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                    `;
+                    grid.appendChild(card);
+                });
+            } catch (error) {
+                console.error("Engine Error:", error);
+                grid.innerHTML = '<div class="loader" style="animation:none; color:#ff4444;">Database Connection Error.</div>';
+            }
+        }
+
+        // Initialize engine strictly on DOM readiness
+        window.addEventListener('DOMContentLoaded', fetchPolarithProjects);
+    </script>
+</body>
+</html>
