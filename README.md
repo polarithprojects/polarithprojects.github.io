@@ -1,1 +1,0 @@
-# polarithprojects.github.io
